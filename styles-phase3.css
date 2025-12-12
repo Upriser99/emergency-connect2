@@ -1,0 +1,392 @@
+/* ========================================
+   PHASE 3: FAVORITES & QUICK CONTACTS
+   ======================================== */
+
+/* Section Headers */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.section-header h3 {
+    font-size: 1.125rem;
+    color: var(--text-inverse);
+    margin: 0;
+    text-shadow: 0 2px 4px var(--shadow);
+}
+
+/* Favorites Section */
+.favorites-section,
+.contacts-section {
+    margin-bottom: 1.5rem;
+}
+
+.favorites-list,
+.contacts-list {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but keep functionality */
+.favorites-list::-webkit-scrollbar,
+.contacts-list::-webkit-scrollbar {
+    height: 4px;
+}
+
+.favorites-list::-webkit-scrollbar-thumb,
+.contacts-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+}
+
+/* Favorite Card */
+.favorite-card {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1rem;
+    min-width: 200px;
+    max-width: 200px;
+    box-shadow: 0 2px 4px var(--shadow);
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.favorite-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-lg);
+}
+
+.favorite-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.favorite-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    flex: 1;
+}
+
+.favorite-remove {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.favorite-remove:hover {
+    opacity: 1;
+}
+
+.favorite-address {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.favorite-distance {
+    font-size: 0.875rem;
+    color: var(--color-hospital);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.favorite-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.favorite-btn {
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.favorite-call {
+    background: var(--color-hospital);
+    color: white;
+}
+
+.favorite-call:hover {
+    background: #dc2626;
+}
+
+.favorite-directions {
+    background: var(--color-police);
+    color: white;
+}
+
+.favorite-directions:hover {
+    background: #2563eb;
+}
+
+/* Contact Card */
+.contact-card {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1rem;
+    min-width: 160px;
+    max-width: 160px;
+    box-shadow: 0 2px 4px var(--shadow);
+    text-align: center;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-lg);
+}
+
+.contact-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-police) 0%, var(--color-hospital) 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 auto 0.75rem;
+}
+
+.contact-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.contact-relation {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.contact-phone {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.contact-btn {
+    background: var(--color-hospital);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+.contact-btn:hover {
+    background: #dc2626;
+}
+
+.contact-edit,
+.contact-delete {
+    background: none;
+    border: none;
+    font-size: 1.125rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    position: absolute;
+    top: 0.5rem;
+}
+
+.contact-edit {
+    right: 2rem;
+}
+
+.contact-delete {
+    right: 0.5rem;
+}
+
+.contact-edit:hover,
+.contact-delete:hover {
+    opacity: 1;
+}
+
+/* Add Contact Button */
+.add-contact-btn {
+    background: var(--color-police);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-contact-btn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+/* Empty States */
+.empty-state {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--text-inverse);
+    opacity: 0.7;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.empty-state small {
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+/* Contact Modal */
+.contact-modal {
+    max-width: 400px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-police);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.btn-secondary {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--border-color);
+}
+
+/* Star Icon on Service Cards */
+.service-card {
+    position: relative;
+}
+
+.favorite-star {
+    position: absolute;
+    top: 1rem;
+    right: 5rem;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+    line-height: 1;
+    opacity: 0.7;
+}
+
+.favorite-star.active {
+    opacity: 1;
+}
+
+body.dark-mode .favorite-star {
+    opacity: 0.8;
+}
+
+body.dark-mode .favorite-star.active {
+    opacity: 1;
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .favorite-card,
+body.dark-mode .contact-card {
+    background: var(--bg-secondary);
+}
+
+body.dark-mode .form-group input {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .favorite-card {
+        min-width: 180px;
+        max-width: 180px;
+    }
+
+    .contact-card {
+        min-width: 140px;
+        max-width: 140px;
+    }
+}

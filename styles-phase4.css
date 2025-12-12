@@ -1,0 +1,230 @@
+/* ========================================
+   PHASE 4: QUICK ACTION BAR & EMERGENCY TOOLS
+   ======================================== */
+
+/* Quick Action Bar */
+.quick-action-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.action-btn {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border: none;
+    border-radius: 10px;
+    padding: 0.625rem 0.5rem;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.action-btn:active {
+    transform: scale(0.95);
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.action-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.action-label {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+/* Button Colors */
+.siren-btn {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.sos-btn {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+.numbers-btn {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.share-btn {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.flashlight-btn {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.sms-btn {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+}
+
+/* Coming Soon Badge on Action Buttons */
+.action-btn .coming-soon-badge {
+    position: absolute;
+    top: 0.375rem;
+    right: 0.375rem;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 0.5625rem;
+    padding: 0.125rem 0.375rem;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.action-btn.coming-soon {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.action-btn.coming-soon:hover {
+    transform: none;
+}
+
+/* Siren Active State */
+.siren-btn.playing {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+}
+
+/* Emergency Numbers Modal */
+.emergency-modal {
+    max-width: 400px;
+}
+
+.emergency-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.emergency-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.emergency-item:hover {
+    background: var(--border-color);
+    transform: translateX(4px);
+}
+
+.emergency-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-hospital);
+    min-width: 60px;
+}
+
+.emergency-desc {
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+/* Share Location Modal */
+.share-modal {
+    max-width: 400px;
+}
+
+.share-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.share-option-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.share-option-btn:hover {
+    background: var(--border-color);
+    transform: translateX(4px);
+}
+
+.share-icon {
+    font-size: 1.5rem;
+}
+
+.location-link {
+    background: var(--bg-tertiary);
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    word-break: break-all;
+    margin-bottom: 1rem;
+}
+
+/* Dark Mode */
+body.dark-mode .emergency-item,
+body.dark-mode .share-option-btn {
+    background: var(--bg-tertiary);
+}
+
+body.dark-mode .emergency-item:hover,
+body.dark-mode .share-option-btn:hover {
+    background: var(--border-color);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .quick-action-bar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .action-btn {
+        min-height: 70px;
+    }
+
+    .action-icon {
+        font-size: 1.5rem;
+    }
+}

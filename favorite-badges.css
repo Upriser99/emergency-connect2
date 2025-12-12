@@ -1,0 +1,52 @@
+/* Category badge for favorites */
+.favorite-category-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 0.6875rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.favorite-category-badge.police {
+    background: rgba(59, 130, 246, 0.15);
+    color: #1e40af;
+}
+
+.favorite-category-badge.hospital {
+    background: rgba(239, 68, 68, 0.15);
+    color: #991b1b;
+}
+
+.favorite-category-badge.fire {
+    background: rgba(249, 115, 22, 0.15);
+    color: #9a3412;
+}
+
+.favorite-category-badge.petrol {
+    background: rgba(16, 185, 129, 0.15);
+    color: #065f46;
+}
+
+body.dark-mode .favorite-category-badge.police {
+    background: rgba(59, 130, 246, 0.25);
+    color: #93c5fd;
+}
+
+body.dark-mode .favorite-category-badge.hospital {
+    background: rgba(239, 68, 68, 0.25);
+    color: #fca5a5;
+}
+
+body.dark-mode .favorite-category-badge.fire {
+    background: rgba(249, 115, 22, 0.25);
+    color: #fdba74;
+}
+
+body.dark-mode .favorite-category-badge.petrol {
+    background: rgba(16, 185, 129, 0.25);
+    color: #6ee7b7;
+}
