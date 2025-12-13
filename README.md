@@ -217,7 +217,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 Links
 
-- **Live Demo**: [https://emergency-connect.vercel.app](https://emergency-connect.vercel.app)
+- **Live Demo**: [https://emergency-connect.netlify.app](https://emergency-connect.netlify.app)
 - **Documentation**: [docs/](docs/)
 - **Issues**: [GitHub Issues](https://github.com/yourusername/emergency-connect/issues)
 
