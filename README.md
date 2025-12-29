@@ -5,7 +5,9 @@
 
 **Emergency Connect** is a comprehensive, mobile-first emergency response platform for Indore, India. Built with vanilla HTML, CSS, and JavaScript, it provides instant access to emergency services, guides, and life-saving tools.
 
-![Emergency Connect](icon-512.png)
+<p align="center">
+  <img src="public/icons/icon-512.png" alt="Emergency Connect" width="200"/>
+</p>
 
 ---
 
@@ -112,59 +114,23 @@ Get instant URL: `https://emergency-connect-xyz.vercel.app`
 
 ```
 emergency-connect/
-├── 📄 index.html              # Main application entry point
-├── 📄 README.md               # Project documentation
+├── 📄 index.html              # Main application
+├── 📄 README.md               # Documentation
 ├── 📄 USER_MANUAL.md          # User guide
 ├── 📄 LICENSE                 # MIT License
-├── 📄 .gitignore              # Git ignore rules
-├── 📄 start-server.bat        # Local server script
 │
 ├── 📁 src/                    # Source code
-│   ├── 📁 js/                 # JavaScript files
-│   │   ├── app.js            # Core application logic
-│   │   ├── translations.js   # English & Hindi translations
-│   │   ├── favorites.js      # Favorites & contacts management
-│   │   ├── emergency-tools.js # Siren & location sharing
-│   │   └── guides.js         # Emergency guides & health card
-│   │
-│   ├── 📁 css/                # Stylesheets
-│   │   ├── styles.css        # Base styles
-│   │   ├── styles-phase1.css # Dark mode system
-│   │   ├── styles-phase3.css # Favorites & contacts
-│   │   ├── styles-phase4.css # Quick action bar
-│   │   ├── styles-phase5.css # Emergency guides
-│   │   ├── styles-phase6.css # Animations
-│   │   ├── styles-polish.css # UI polish
-│   │   ├── compact-layout.css # Space optimization
-│   │   └── favorite-badges.css # Category badges
-│   │
-│   ├── 📁 data/               # Application data
-│   │   ├── indoreConfig.js   # City configuration
-│   │   └── staticData.js     # Fallback data
-│   │
-│   └── 📁 utils/              # Utility functions
-│       ├── geolocation.js    # Location detection
-│       ├── distance.js       # Distance calculations
-│       ├── osmService.js     # OpenStreetMap API
-│       └── mapService.js     # Leaflet integration
+│   ├── js/                   # JavaScript files
+│   ├── css/                  # Stylesheets
+│   ├── data/                 # App data
+│   └── utils/                # Utilities
 │
 ├── 📁 public/                 # Public assets
-│   ├── 📁 icons/              # App icons
-│   │   ├── favicon.png       # Browser favicon
-│   │   ├── icon-192.png      # PWA icon (192x192)
-│   │   └── icon-512.png      # PWA icon (512x512)
-│   │
+│   ├── icons/                # App icons
 │   ├── manifest.json         # PWA manifest
 │   └── sw.js                 # Service worker
 │
-├── 📁 docs/                   # Documentation
-│   ├── MASTER_PLAN.md        # Development roadmap
-│   ├── MOBILE_SETUP.md       # Mobile testing guide
-│   ├── GITHUB_SETUP.md       # GitHub deployment guide
-│   ├── MAP_FIX.md            # Map troubleshooting
-│   └── README.md             # Docs overview
-│
-└── 📁 assets/                 # Additional assets (if any)
+└── 📁 docs/                   # Documentation & guides
 ```
 
 ---
