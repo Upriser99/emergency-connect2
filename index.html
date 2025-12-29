@@ -9,22 +9,22 @@
     <title>Emergency Connect - Indore</title>
 
     <!-- Icons -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="icon-192.png">
-    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="public/icons/favicon.png">
+    <link rel="apple-touch-icon" href="public/icons/icon-192.png">
+    <link rel="manifest" href="public/manifest.json">
 
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles-polish.css">
-    <link rel="stylesheet" href="styles-phase1.css">
-    <link rel="stylesheet" href="styles-phase3.css">
-    <link rel="stylesheet" href="favorite-badges.css">
-    <link rel="stylesheet" href="compact-layout.css">
-    <link rel="stylesheet" href="styles-phase4.css">
-    <link rel="stylesheet" href="styles-phase5.css">
-    <link rel="stylesheet" href="styles-phase6.css">
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/css/styles-polish.css">
+    <link rel="stylesheet" href="src/css/styles-phase1.css">
+    <link rel="stylesheet" href="src/css/styles-phase3.css">
+    <link rel="stylesheet" href="src/css/favorite-badges.css">
+    <link rel="stylesheet" href="src/css/compact-layout.css">
+    <link rel="stylesheet" href="src/css/styles-phase4.css">
+    <link rel="stylesheet" href="src/css/styles-phase5.css">
+    <link rel="stylesheet" href="src/css/styles-phase6.css">
 </head>
 
 <body>
@@ -533,23 +533,23 @@
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="data/indoreConfig.js"></script>
-    <script src="data/staticData.js"></script>
-    <script src="utils/geolocation.js"></script>
-    <script src="utils/distance.js"></script>
-    <script src="utils/osmService.js"></script>
-    <script src="utils/mapService.js"></script>
-    <script src="translations.js"></script>
-    <script src="favorites.js"></script>
-    <script src="emergency-tools.js"></script>
-    <script src="guides.js"></script>
-    <script src="app.js"></script>
+    <script src="src/data/indoreConfig.js"></script>
+    <script src="src/data/staticData.js"></script>
+    <script src="src/utils/geolocation.js"></script>
+    <script src="src/utils/distance.js"></script>
+    <script src="src/utils/osmService.js"></script>
+    <script src="src/utils/mapService.js"></script>
+    <script src="src/js/translations.js"></script>
+    <script src="src/js/favorites.js"></script>
+    <script src="src/js/emergency-tools.js"></script>
+    <script src="src/js/guides.js"></script>
+    <script src="src/js/app.js"></script>
 
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('/public/sw.js')
                     .then(reg => console.log('Service Worker registered'))
                     .catch(err => console.log('Service Worker registration failed'));
             });

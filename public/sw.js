@@ -3,26 +3,26 @@
 
 const CACHE_NAME = 'emergency-connect-v1';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/app.js',
-    '/styles.css',
-    '/styles-phase1.css',
-    '/styles-phase3.css',
-    '/styles-phase4.css',
-    '/styles-phase5.css',
-    '/styles-phase6.css',
-    '/styles-polish.css',
-    '/compact-layout.css',
-    '/favorite-badges.css',
-    '/translations.js',
-    '/favorites.js',
-    '/emergency-tools.js',
-    '/guides.js',
-    '/manifest.json',
-    '/favicon.png',
-    '/icon-192.png',
-    '/icon-512.png'
+  '/',
+  '/index.html',
+  '/src/js/app.js',
+  '/src/css/styles.css',
+  '/src/css/styles-phase1.css',
+  '/src/css/styles-phase3.css',
+  '/src/css/styles-phase4.css',
+  '/src/css/styles-phase5.css',
+  '/src/css/styles-phase6.css',
+  '/src/css/styles-polish.css',
+  '/src/css/compact-layout.css',
+  '/src/css/favorite-badges.css',
+  '/src/js/translations.js',
+  '/src/js/favorites.js',
+  '/src/js/emergency-tools.js',
+  '/src/js/guides.js',
+  '/public/manifest.json',
+  '/public/icons/favicon.png',
+  '/public/icons/icon-192.png',
+  '/public/icons/icon-512.png'
 ];
 
 // Install event - cache assets
