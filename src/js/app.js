@@ -82,7 +82,7 @@ const App = {
 
     // Update service counts on home page
     updateServiceCounts() {
-        const categories = ['police', 'hospital', 'fire', 'petrol'];
+        const categories = ['police', 'hospital', 'fire', 'petrol', 'ambulance', 'pharmacy', 'bank'];
 
         categories.forEach(category => {
             const count = STATIC_DATA[category] ? STATIC_DATA[category].length : 0;
@@ -167,7 +167,10 @@ const App = {
             police: '🚔 Police Stations',
             hospital: '🏥 Hospitals',
             fire: '🚒 Fire Stations',
-            petrol: '⛽ Petrol Pumps'
+            petrol: '⛽ Petrol Pumps',
+            ambulance: '🚑 Ambulance Services',
+            pharmacy: '💊 Pharmacies',
+            bank: '🏦 Banks & ATMs'
         };
         document.getElementById('serviceTitle').textContent = titles[category];
 
