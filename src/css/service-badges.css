@@ -1,0 +1,55 @@
+/* 24/7 Badge and ATM Styling */
+
+/* 24/7 Open Badge */
+.badge-24x7 {
+    display: inline-block;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+}
+
+/* ATM Card Styling */
+.service-card.atm {
+    border-left: 4px solid #8b5cf6;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(139, 92, 246, 0.02) 100%);
+}
+
+.service-card.atm .service-name::before {
+    content: "🏧 ";
+}
+
+/* Bank Card Styling */
+.service-card.bank-type {
+    border-left: 4px solid #3b82f6;
+}
+
+/* Dark Mode Support */
+body.dark-mode .badge-24x7 {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+body.dark-mode .service-card.atm {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+}
+
+/* Service Type Badge */
+.service-type-badge {
+    display: inline-block;
+    background: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-left: 0.5rem;
+}
+
+body.dark-mode .service-type-badge {
+    background: rgba(139, 92, 246, 0.2);
+    color: #a78bfa;
+}

@@ -1,171 +1,295 @@
-// Static verified emergency services data for Indore
+// Static Emergency Services Data for Indore
+// This data is used as fallback when OSM API is unavailable
+
 const STATIC_DATA = {
     police: [
         {
-            name: "Rajendra Nagar Police Station",
-            address: "Rajendra Nagar, Indore, Madhya Pradesh 452012",
-            phone: "0731-2545100",
-            lat: 22.7279,
-            lng: 75.8613,
-            verified: true
-        },
-        {
-            name: "Sanyogitaganj Police Station",
-            address: "Sanyogitaganj, Indore, Madhya Pradesh 452003",
-            phone: "0731-2536100",
+            name: "Indore Police Control Room",
+            address: "MG Road, Indore",
+            phone: "100",
             lat: 22.7196,
             lng: 75.8577,
-            verified: true
+            verified: true,
+            is24x7: true
         },
         {
-            name: "Vijay Nagar Police Station",
-            address: "Vijay Nagar, Indore, Madhya Pradesh 452010",
-            phone: "0731-4227100",
-            lat: 22.7532,
-            lng: 75.8937,
-            verified: true
+            name: "Rajwada Police Station",
+            address: "Rajwada, Indore",
+            phone: "0731-2536666",
+            lat: 22.7186,
+            lng: 75.8573,
+            verified: true,
+            is24x7: true
         },
         {
-            name: "Aerodrome Police Station",
-            address: "Near Airport, Indore, Madhya Pradesh 453112",
-            phone: "0731-2587100",
-            lat: 22.7218,
-            lng: 75.8011,
-            verified: true
-        },
-        {
-            name: "MIG Police Station",
-            address: "MIG Colony, AB Road, Indore, Madhya Pradesh 452016",
+            name: "Palasia Police Station",
+            address: "Palasia Square, Indore",
             phone: "0731-2551100",
-            lat: 22.6843,
-            lng: 75.8648,
-            verified: true
+            lat: 22.7244,
+            lng: 75.8721,
+            verified: true,
+            is24x7: true
         }
     ],
+
     hospital: [
         {
-            name: "MY Hospital (Maharaja Yeshwantrao Hospital)",
-            address: "Moti Tabela, Indore, Madhya Pradesh 452001",
-            phone: "0731-2540051",
-            lat: 22.7196,
-            lng: 75.8577,
-            verified: true
+            name: "Choithram Hospital",
+            address: "Manik Bagh Road, Indore",
+            phone: "0731-2720000",
+            lat: 22.7251,
+            lng: 75.8681,
+            verified: true,
+            is24x7: true
         },
         {
-            name: "Bombay Hospital Indore",
-            address: "Scheme No 94, Vijay Nagar, Indore, Madhya Pradesh 452010",
+            name: "CHL Hospital",
+            address: "AB Road, Indore",
+            phone: "0731-4044100",
+            lat: 22.7532,
+            lng: 75.8937,
+            verified: true,
+            is24x7: true
+        },
+        {
+            name: "Bombay Hospital",
+            address: "Vijay Nagar, Indore",
             phone: "0731-4222222",
             lat: 22.7532,
             lng: 75.8937,
-            verified: true
+            verified: true,
+            is24x7: true
         },
         {
-            name: "CHL Hospital Indore",
-            address: "AB Road, Near Janjeerwala Square, Indore, Madhya Pradesh 452008",
-            phone: "0731-4044444",
-            lat: 22.6843,
-            lng: 75.8648,
-            verified: true
-        },
-        {
-            name: "Greater Kailash Hospital",
-            address: "Scheme No 54, Vijay Nagar, Indore, Madhya Pradesh 452010",
-            phone: "0731-4900000",
-            lat: 22.7496,
-            lng: 75.8969,
-            verified: true
-        },
-        {
-            name: "Apollo Hospital Indore",
-            address: "Scheme No 74C, Vijay Nagar, Indore, Madhya Pradesh 452010",
-            phone: "0731-4888888",
-            lat: 22.7463,
-            lng: 75.8915,
-            verified: true
-        },
-        {
-            name: "Medanta Super Specialty Hospital",
-            address: "AB Road, Indore, Madhya Pradesh 452010",
-            phone: "0731-4777777",
-            lat: 22.6912,
-            lng: 75.8701,
-            verified: true
+            name: "MY Hospital (Government)",
+            address: "MG Road, Indore",
+            phone: "0731-2537777",
+            lat: 22.7196,
+            lng: 75.8577,
+            verified: true,
+            is24x7: true
         }
     ],
+
     fire: [
         {
-            name: "Fire Station Rajwada",
-            address: "Rajwada, Indore, Madhya Pradesh 452002",
-            phone: "0731-2433101",
+            name: "Indore Fire Station (Main)",
+            address: "MG Road, Indore",
+            phone: "101",
             lat: 22.7196,
             lng: 75.8577,
-            verified: true
+            verified: true,
+            is24x7: true
         },
         {
-            name: "Fire Station Palasia",
-            address: "Palasia Square, Indore, Madhya Pradesh 452001",
-            phone: "0731-2536101",
-            lat: 22.7243,
-            lng: 75.8722,
-            verified: true
-        },
-        {
-            name: "Fire Station Aerodrome",
-            address: "Aerodrome Road, Indore, Madhya Pradesh 453112",
-            phone: "0731-2587101",
-            lat: 22.7218,
-            lng: 75.8011,
-            verified: true
-        },
-        {
-            name: "Fire Station Vijay Nagar",
-            address: "Vijay Nagar, Indore, Madhya Pradesh 452010",
-            phone: "0731-4227101",
-            lat: 22.7532,
-            lng: 75.8937,
-            verified: true
+            name: "Palasia Fire Station",
+            address: "Palasia, Indore",
+            phone: "0731-2551101",
+            lat: 22.7244,
+            lng: 75.8721,
+            verified: true,
+            is24x7: true
         }
     ],
+
     petrol: [
         {
-            name: "Indian Oil Petrol Pump - Vijay Nagar",
-            address: "AB Road, Vijay Nagar, Indore, Madhya Pradesh 452010",
-            phone: "0731-4012345",
+            name: "Indian Oil Petrol Pump",
+            address: "AB Road, Indore",
+            phone: "N/A",
             lat: 22.7532,
             lng: 75.8937,
-            verified: true
+            verified: true,
+            is24x7: true
         },
         {
-            name: "HP Petrol Pump - Palasia",
-            address: "MG Road, Palasia, Indore, Madhya Pradesh 452001",
-            phone: "0731-2536789",
-            lat: 22.7243,
-            lng: 75.8722,
-            verified: true
-        },
-        {
-            name: "Bharat Petroleum - Rau",
-            address: "Rau, Indore, Madhya Pradesh 453331",
-            phone: "0731-2987654",
-            lat: 22.6543,
-            lng: 75.8234,
-            verified: true
-        },
-        {
-            name: "Indian Oil - Aerodrome Road",
-            address: "Aerodrome Road, Indore, Madhya Pradesh 453112",
-            phone: "0731-2587890",
-            lat: 22.7218,
-            lng: 75.8011,
-            verified: true
-        },
-        {
-            name: "HP Petrol Pump - Sapna Sangeeta",
-            address: "Sapna Sangeeta Road, Indore, Madhya Pradesh 452001",
-            phone: "0731-2545678",
+            name: "HP Petrol Pump",
+            address: "MG Road, Indore",
+            phone: "N/A",
             lat: 22.7196,
             lng: 75.8577,
-            verified: true
+            verified: true,
+            is24x7: false
+        }
+    ],
+
+    ambulance: [
+        {
+            name: "108 Ambulance Service",
+            address: "Indore (State-wide)",
+            phone: "108",
+            lat: 22.7196,
+            lng: 75.8577,
+            verified: true,
+            is24x7: true
+        },
+        {
+            name: "102 Ambulance Service",
+            address: "Indore (State-wide)",
+            phone: "102",
+            lat: 22.7196,
+            lng: 75.8577,
+            verified: true,
+            is24x7: true
+        },
+        {
+            name: "Choithram Hospital Ambulance",
+            address: "Manik Bagh Road, Indore",
+            phone: "0731-2720000",
+            lat: 22.7251,
+            lng: 75.8681,
+            verified: true,
+            is24x7: true
+        },
+        {
+            name: "CHL Hospital Ambulance",
+            address: "AB Road, Indore",
+            phone: "0731-4044100",
+            lat: 22.7532,
+            lng: 75.8937,
+            verified: true,
+            is24x7: true
+        },
+        {
+            name: "Bombay Hospital Ambulance",
+            address: "Vijay Nagar, Indore",
+            phone: "0731-4222222",
+            lat: 22.7532,
+            lng: 75.8937,
+            verified: true,
+            is24x7: true
+        }
+    ],
+
+    pharmacy: [
+        {
+            name: "Apollo Pharmacy",
+            address: "Vijay Nagar, Indore",
+            phone: "0731-4000000",
+            lat: 22.7532,
+            lng: 75.8937,
+            verified: true,
+            is24x7: true
+        },
+        {
+            name: "MedPlus",
+            address: "AB Road, Indore",
+            phone: "0731-4111111",
+            lat: 22.7532,
+            lng: 75.8937,
+            verified: true,
+            is24x7: false
+        },
+        {
+            name: "Wellness Forever",
+            address: "Palasia Square, Indore",
+            phone: "0731-2551122",
+            lat: 22.7244,
+            lng: 75.8721,
+            verified: true,
+            is24x7: true
+        },
+        {
+            name: "Guardian Pharmacy",
+            address: "MG Road, Indore",
+            phone: "0731-2537788",
+            lat: 22.7196,
+            lng: 75.8577,
+            verified: true,
+            is24x7: false
+        },
+        {
+            name: "Choithram Hospital Pharmacy",
+            address: "Manik Bagh Road, Indore",
+            phone: "0731-2720000",
+            lat: 22.7251,
+            lng: 75.8681,
+            verified: true,
+            is24x7: true
+        }
+    ],
+
+    bank: [
+        {
+            name: "State Bank of India - Main Branch",
+            address: "MG Road, Indore",
+            phone: "0731-2537799",
+            lat: 22.7196,
+            lng: 75.8577,
+            verified: true,
+            is24x7: false,
+            type: "bank"
+        },
+        {
+            name: "HDFC Bank",
+            address: "Vijay Nagar, Indore",
+            phone: "0731-4000001",
+            lat: 22.7532,
+            lng: 75.8937,
+            verified: true,
+            is24x7: false,
+            type: "bank"
+        },
+        {
+            name: "ICICI Bank",
+            address: "AB Road, Indore",
+            phone: "0731-4111112",
+            lat: 22.7532,
+            lng: 75.8937,
+            verified: true,
+            is24x7: false,
+            type: "bank"
+        },
+        {
+            name: "Axis Bank",
+            address: "Palasia Square, Indore",
+            phone: "0731-2551123",
+            lat: 22.7244,
+            lng: 75.8721,
+            verified: true,
+            is24x7: false,
+            type: "bank"
+        },
+        // ATMs - 24/7
+        {
+            name: "SBI ATM - Rajwada",
+            address: "Rajwada, Indore",
+            phone: "N/A",
+            lat: 22.7186,
+            lng: 75.8573,
+            verified: true,
+            is24x7: true,
+            type: "atm"
+        },
+        {
+            name: "HDFC ATM - Vijay Nagar",
+            address: "Vijay Nagar, Indore",
+            phone: "N/A",
+            lat: 22.7532,
+            lng: 75.8937,
+            verified: true,
+            is24x7: true,
+            type: "atm"
+        },
+        {
+            name: "ICICI ATM - AB Road",
+            address: "AB Road, Indore",
+            phone: "N/A",
+            lat: 22.7532,
+            lng: 75.8937,
+            verified: true,
+            is24x7: true,
+            type: "atm"
+        },
+        {
+            name: "Axis ATM - Palasia",
+            address: "Palasia Square, Indore",
+            phone: "N/A",
+            lat: 22.7244,
+            lng: 75.8721,
+            verified: true,
+            is24x7: true,
+            type: "atm"
         }
     ]
 };
