@@ -7,7 +7,10 @@ const OSMService = {
         police: 'amenity=police',
         hospital: 'amenity=hospital',
         fire: 'amenity=fire_station',
-        petrol: 'amenity=fuel'
+        petrol: 'amenity=fuel',
+        ambulance: 'emergency=ambulance_station',
+        pharmacy: 'amenity=pharmacy',
+        bank: 'amenity=bank'
     },
 
     // Fetch nearby places from OSM
@@ -62,8 +65,18 @@ const OSMService = {
                 lat: el.lat,
                 lng: el.lon,
                 verified: false,
-                source: 'osm'
+                source: 'osm',
+                is24x7: this.check24x7(el.tags),
+                openingHours: el.tags.opening_hours || null
             }));
+    },
+
+    // Check if service is open 24/7
+    check24x7(tags) {
+        const hours = tags.opening_hours || tags['opening_hours:covid19'] || '';
+        return hours === '24/7' ||
+            hours.includes('Mo-Su 00:00-24:00') ||
+            hours.includes('00:00-24:00');
     },
 
     // Build address from OSM tags

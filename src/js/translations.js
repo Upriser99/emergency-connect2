@@ -23,6 +23,7 @@ const TRANSLATIONS = {
         petrol: "Petrol",
         ambulance: "Ambulance",
         pharmacy: "Pharmacy",
+        banks: "Banks",
 
         // Emergency Numbers
         emergencyNumbers: "⚡ Quick Emergency Numbers",
@@ -134,6 +135,7 @@ const TRANSLATIONS = {
         petrol: "पेट्रोल",
         ambulance: "एम्बुलेंस",
         pharmacy: "दवाखाना",
+        banks: "बैंक",
 
         // Emergency Numbers
         emergencyNumbers: "⚡ त्वरित आपातकालीन नंबर",
@@ -251,7 +253,8 @@ function updateAllText() {
         'fire': 'fire',
         'petrol': 'petrol',
         'ambulance': 'ambulance',
-        'pharmacy': 'pharmacy'
+        'pharmacy': 'pharmacy',
+        'bank': 'banks'
     };
 
     Object.keys(categories).forEach(cat => {

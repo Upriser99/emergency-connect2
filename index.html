@@ -58,6 +58,7 @@
             <div class="container">
                 <h2 class="section-title">Select Emergency Service</h2>
 
+
                 <div class="category-grid">
                     <button class="category-card police" onclick="showServices('police')">
                         <div class="category-icon">🚔</div>
@@ -77,22 +78,28 @@
                         <p class="service-count" id="fireCount">Loading...</p>
                     </button>
 
+                    <button class="category-card ambulance" onclick="showServices('ambulance')">
+                        <div class="category-icon">🚑</div>
+                        <h3>Ambulance</h3>
+                        <p class="service-count" id="ambulanceCount">Loading...</p>
+                    </button>
+
+                    <button class="category-card pharmacy" onclick="showServices('pharmacy')">
+                        <div class="category-icon">💊</div>
+                        <h3>Pharmacy</h3>
+                        <p class="service-count" id="pharmacyCount">Loading...</p>
+                    </button>
+
+                    <button class="category-card bank" onclick="showServices('bank')">
+                        <div class="category-icon">🏦</div>
+                        <h3>Banks</h3>
+                        <p class="service-count" id="bankCount">Loading...</p>
+                    </button>
+
                     <button class="category-card petrol" onclick="showServices('petrol')">
                         <div class="category-icon">⛽</div>
                         <h3>Petrol</h3>
                         <p class="service-count" id="petrolCount">Loading...</p>
-                    </button>
-
-                    <button class="category-card ambulance coming-soon" onclick="showComingSoon('Ambulance')">
-                        <div class="category-icon">🚑</div>
-                        <h3>Ambulance</h3>
-                        <span class="coming-soon-badge">Coming Soon</span>
-                    </button>
-
-                    <button class="category-card pharmacy coming-soon" onclick="showComingSoon('Pharmacy')">
-                        <div class="category-icon">💊</div>
-                        <h3>Pharmacy</h3>
-                        <span class="coming-soon-badge">Coming Soon</span>
                     </button>
                 </div>
 
@@ -598,6 +605,7 @@
     <script src="src/utils/distance.js"></script>
     <script src="src/utils/osmService.js"></script>
     <script src="src/utils/mapService.js"></script>
+    <script src="src/js/language-manager.js"></script>
     <script src="src/js/translations.js"></script>
     <script src="src/js/favorites.js"></script>
     <script src="src/js/emergency-tools.js"></script>
