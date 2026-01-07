@@ -112,15 +112,14 @@
                         <span class="action-icon">📍</span>
                         <span class="action-label">Share</span>
                     </button>
-                    <button class="action-btn flashlight-btn coming-soon" onclick="showComingSoon('Flashlight')">
+                    <button class="action-btn flashlight-btn" onclick="toggleFlashlight()" id="flashlightBtn"
+                        data-action="flashlight">
                         <span class="action-icon">🔦</span>
                         <span class="action-label">Flashlight</span>
-                        <span class="coming-soon-badge">Soon</span>
                     </button>
-                    <button class="action-btn sms-btn coming-soon" onclick="showComingSoon('SOS SMS')">
+                    <button class="action-btn sms-btn" onclick="sendSOSBlast()" id="smsBtn" data-action="sms">
                         <span class="action-icon">📱</span>
-                        <span class="action-label">SMS</span>
-                        <span class="coming-soon-badge">Soon</span>
+                        <span class="action-label">SOS SMS</span>
                     </button>
                 </div>
 
@@ -157,10 +156,9 @@
 
                 <!-- Future Features Placeholders -->
                 <div class="future-features">
-                    <button class="feature-placeholder" onclick="showComingSoon('Shake to SOS')">
+                    <button class="feature-placeholder" onclick="toggleShakeToSOS()">
                         <span class="feature-icon">📳</span>
                         <span class="feature-label">Shake to SOS</span>
-                        <span class="coming-soon-badge">Soon</span>
                     </button>
                     <button class="feature-placeholder" onclick="showComingSoon('Voice Commands')">
                         <span class="feature-icon">🎤</span>
@@ -267,9 +265,8 @@
                 <div class="health-card-section">
                     <div class="section-header">
                         <h3>📋 Accident Report</h3>
-                        <button class="add-contact-btn coming-soon" onclick="showComingSoon('Accident Report')">
+                        <button class="add-contact-btn" onclick="showAccidentReport()">
                             Create Report
-                            <span class="coming-soon-badge" style="position: relative; margin-left: 0.5rem;">Soon</span>
                         </button>
                     </div>
                     <p style="color: var(--text-secondary); font-size: 0.875rem; margin: 0;">Document incidents with
@@ -529,6 +526,68 @@
         <span class="sos-text">SOS</span>
     </a>
 
+    <!-- Accident Report Modal -->
+    <div id="accidentReportModal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h2>📋 Accident Report</h2>
+                <button class="close-btn" onclick="closeAccidentReport()">×</button>
+            </div>
+            <form id="accidentReportForm" onsubmit="saveAccidentReport(event)">
+                <div class="form-group">
+                    <label for="reportDate">Date</label>
+                    <input type="date" id="reportDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="reportTime">Time</label>
+                    <input type="time" id="reportTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="reportLocation">Location (GPS)</label>
+                    <input type="text" id="reportLocation" placeholder="Auto-detecting..." readonly>
+                </div>
+                <div class="form-group">
+                    <label for="incidentType">Type of Incident</label>
+                    <select id="incidentType" required>
+                        <option value="">Select type...</option>
+                        <option value="vehicle">Vehicle Accident</option>
+                        <option value="fall">Fall/Injury</option>
+                        <option value="assault">Assault</option>
+                        <option value="fire">Fire</option>
+                        <option value="medical">Medical Emergency</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reportDescription">Description</label>
+                    <textarea id="reportDescription" rows="4" placeholder="Describe what happened..."
+                        required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="reportInjuries">Injuries (if any)</label>
+                    <input type="text" id="reportInjuries" placeholder="Describe injuries">
+                </div>
+                <div class="form-group">
+                    <label for="reportWitnesses">Witnesses</label>
+                    <input type="text" id="reportWitnesses" placeholder="Names and contact info">
+                </div>
+                <div class="form-group">
+                    <label for="vehicleDetails">Vehicle Details (if applicable)</label>
+                    <input type="text" id="vehicleDetails" placeholder="License plate, make, model">
+                </div>
+                <div class="form-group">
+                    <label for="reportPhotos">Photos</label>
+                    <input type="file" id="reportPhotos" accept="image/*" multiple onchange="handlePhotoUpload(event)">
+                    <div id="photoPreview" style="margin-top: 0.5rem;"></div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeAccidentReport()">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Report</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -543,6 +602,10 @@
     <script src="src/js/favorites.js"></script>
     <script src="src/js/emergency-tools.js"></script>
     <script src="src/js/guides.js"></script>
+    <script src="src/js/flashlight.js"></script>
+    <script src="src/js/sos-sms.js"></script>
+    <script src="src/js/shake-to-sos.js"></script>
+    <script src="src/js/accident-report.js"></script>
     <script src="src/js/app.js"></script>
 
     <!-- Service Worker Registration -->
