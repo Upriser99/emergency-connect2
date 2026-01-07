@@ -214,6 +214,46 @@ const DisasterAlerts = {
     }
 };
 
+// Demo function to show disaster alert
+function showDisasterAlertDemo() {
+    // Request notification permission first
+    DisasterAlerts.requestNotificationPermission();
+
+    // Create a demo alert
+    const demoAlerts = [
+        {
+            type: 'heatwave',
+            title: 'Heat Wave Alert - Indore',
+            message: 'Temperature expected to reach 45°C today. Stay indoors during peak hours (11 AM - 4 PM).',
+            severity: 'high'
+        },
+        {
+            type: 'flood',
+            title: 'Heavy Rain Warning',
+            message: 'IMD predicts heavy rainfall in Indore. Low-lying areas may experience waterlogging.',
+            severity: 'medium'
+        },
+        {
+            type: 'storm',
+            title: 'Thunderstorm Alert',
+            message: 'Severe thunderstorm expected in next 2 hours. Stay indoors and avoid travel.',
+            severity: 'high'
+        }
+    ];
+
+    // Pick a random demo alert
+    const demo = demoAlerts[Math.floor(Math.random() * demoAlerts.length)];
+
+    // Create the alert
+    DisasterAlerts.createAlert(
+        demo.type,
+        demo.title,
+        demo.message,
+        demo.severity,
+        24 // 24 hours duration
+    );
+}
+
 // Close alert modal
 function closeAlertModal() {
     const modal = document.getElementById('alertModal');
