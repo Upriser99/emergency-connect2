@@ -1,0 +1,163 @@
+/* Modal Fixes for Better Alignment */
+
+/* Override modal styles for better alignment */
+#accidentReportModal .modal-content {
+    padding: 0 !important;
+}
+
+#accidentReportModal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--card-bg);
+}
+
+#accidentReportModal .modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+#accidentReportModal .close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+#accidentReportModal .close-btn:hover {
+    color: var(--color-fire);
+}
+
+#accidentReportModal form {
+    padding: 1.5rem;
+}
+
+#accidentReportModal .form-group {
+    margin-bottom: 1.25rem;
+}
+
+#accidentReportModal .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+#accidentReportModal .form-group input,
+#accidentReportModal .form-group select,
+#accidentReportModal .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    transition: border-color 0.2s;
+}
+
+#accidentReportModal .form-group input:focus,
+#accidentReportModal .form-group select:focus,
+#accidentReportModal .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-police);
+}
+
+#accidentReportModal .modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    background: var(--card-bg);
+}
+
+#accidentReportModal .modal-actions button {
+    flex: 1;
+    max-width: 150px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#accidentReportModal .btn-secondary {
+    background: var(--text-secondary);
+    color: white;
+    border: none;
+}
+
+#accidentReportModal .btn-secondary:hover {
+    background: var(--text-primary);
+}
+
+#accidentReportModal .btn-primary {
+    background: var(--color-fire);
+    color: white;
+    border: none;
+}
+
+#accidentReportModal .btn-primary:hover {
+    background: #c81e1e;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    #accidentReportModal .modal-content {
+        max-width: 100%;
+        max-height: 95vh;
+        border-radius: 12px;
+    }
+    
+    #accidentReportModal .modal-header {
+        padding: 1rem;
+    }
+    
+    #accidentReportModal .modal-header h2 {
+        font-size: 1.25rem;
+    }
+    
+    #accidentReportModal form {
+        padding: 1rem;
+    }
+    
+    #accidentReportModal .modal-actions {
+        padding: 1rem;
+        flex-direction: column-reverse;
+    }
+    
+    #accidentReportModal .modal-actions button {
+        max-width: 100%;
+    }
+}
+
+/* Dark Mode Support */
+body.dark-mode #accidentReportModal .modal-header,
+body.dark-mode #accidentReportModal form,
+body.dark-mode #accidentReportModal .modal-actions {
+    background: var(--card-bg);
+}
+
+body.dark-mode #accidentReportModal .form-group input,
+body.dark-mode #accidentReportModal .form-group select,
+body.dark-mode #accidentReportModal .form-group textarea {
+    background: var(--bg-primary);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
