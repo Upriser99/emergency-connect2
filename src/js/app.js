@@ -46,11 +46,34 @@ const App = {
         if (action === 'call112') {
             // Direct call to 112
             window.location.href = 'tel:112';
+        } else if (action === 'numbers') {
+            // Scroll to emergency numbers
+            setTimeout(() => {
+                const numbersSection = document.querySelector('.emergency-numbers');
+                if (numbersSection) {
+                    numbersSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 500);
+        } else if (action === 'guides') {
+            // Scroll to emergency guides
+            setTimeout(() => {
+                const guidesSection = document.querySelector('.guides-section');
+                if (guidesSection) {
+                    guidesSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 500);
+        } else if (action === 'share') {
+            // Trigger share location
+            setTimeout(() => {
+                if (typeof shareLocation === 'function') {
+                    shareLocation();
+                }
+            }, 500);
         } else if (view && ['police', 'hospital', 'fire', 'petrol', 'ambulance', 'pharmacy', 'bank'].includes(view)) {
             // Auto-open the category
             setTimeout(() => {
                 this.showServices(view);
-            }, 500); // Small delay to ensure everything is loaded
+            }, 500);
         }
     },
 

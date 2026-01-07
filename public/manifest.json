@@ -61,10 +61,75 @@
             ]
         },
         {
+            "name": "Fire Stations",
+            "short_name": "Fire",
+            "description": "Find fire stations",
+            "url": "/?view=fire",
+            "icons": [
+                {
+                    "src": "/public/icons/icon-192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
             "name": "Pharmacies",
             "short_name": "Pharmacy",
             "description": "Find nearby pharmacies",
             "url": "/?view=pharmacy",
+            "icons": [
+                {
+                    "src": "/public/icons/icon-192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Banks & ATMs",
+            "short_name": "Banks",
+            "description": "Find banks and ATMs",
+            "url": "/?view=bank",
+            "icons": [
+                {
+                    "src": "/public/icons/icon-192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Emergency Numbers",
+            "short_name": "Numbers",
+            "description": "View all emergency numbers",
+            "url": "/?action=numbers",
+            "icons": [
+                {
+                    "src": "/public/icons/icon-192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Emergency Guides",
+            "short_name": "Guides",
+            "description": "First aid and emergency guides",
+            "url": "/?action=guides",
+            "icons": [
+                {
+                    "src": "/public/icons/icon-192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Share Location",
+            "short_name": "Share",
+            "description": "Share your location",
+            "url": "/?action=share",
             "icons": [
                 {
                     "src": "/public/icons/icon-192.png",
