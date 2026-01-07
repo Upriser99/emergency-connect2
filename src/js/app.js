@@ -31,7 +31,27 @@ const App = {
         // Update service counts
         this.updateServiceCounts();
 
+        // Handle deep linking from PWA shortcuts
+        this.handleDeepLink();
+
         console.log('✅ App initialized');
+    },
+
+    // Handle deep linking from URL parameters
+    handleDeepLink() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const view = urlParams.get('view');
+        const action = urlParams.get('action');
+
+        if (action === 'call112') {
+            // Direct call to 112
+            window.location.href = 'tel:112';
+        } else if (view && ['police', 'hospital', 'fire', 'petrol', 'ambulance', 'pharmacy', 'bank'].includes(view)) {
+            // Auto-open the category
+            setTimeout(() => {
+                this.showServices(view);
+            }, 500); // Small delay to ensure everything is loaded
+        }
     },
 
     // Initialize theme from localStorage
@@ -276,11 +296,28 @@ const App = {
         const card = document.createElement('div');
         card.className = 'service-card';
 
+        // Add ATM class if it's an ATM
+        if (service.type === 'atm') {
+            card.classList.add('atm');
+        } else if (service.type === 'bank') {
+            card.classList.add('bank-type');
+        }
+
         const distanceCategory = DistanceCalculator.getDistanceCategory(service.distance);
         const distanceText = DistanceCalculator.formatDistance(service.distance);
 
         const verifiedBadge = service.verified
             ? '<span class="verified-badge">✓ Verified</span>'
+            : '';
+
+        // Add 24/7 badge if service is open 24/7
+        const badge24x7 = service.is24x7
+            ? '<span class="badge-24x7">24/7 Open</span>'
+            : '';
+
+        // Add ATM type badge
+        const typeBadge = service.type === 'atm'
+            ? '<span class="service-type-badge">ATM</span>'
             : '';
 
         // Check if favorited
@@ -296,6 +333,8 @@ const App = {
                 <div class="service-name">
                     ${service.name}
                     ${verifiedBadge}
+                    ${badge24x7}
+                    ${typeBadge}
                 </div>
                 <div class="distance-badge ${distanceCategory}">${distanceText}</div>
             </div>
