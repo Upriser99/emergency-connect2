@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="src/css/healthcard-fixes.css">
     <link rel="stylesheet" href="src/css/service-badges.css">
     <link rel="stylesheet" href="src/css/disaster-alerts.css">
+    <link rel="stylesheet" href="src/css/guides-view.css">
 </head>
 
 <body>
@@ -65,46 +66,51 @@
 
 
                 <div class="category-grid">
-                    <button class="category-card police" onclick="showServices('police')">
+                    <button class="category-card police" onclick="App.showServices('police')">
                         <div class="category-icon">🚔</div>
-                        <h3>Police</h3>
-                        <p class="service-count" id="policeCount">Loading...</p>
+                        <div class="category-name">Police</div>
+                        <div class="category-count" id="policeCount">Loading...</div>
                     </button>
 
-                    <button class="category-card hospital" onclick="showServices('hospital')">
+                    <button class="category-card hospital" onclick="App.showServices('hospital')">
                         <div class="category-icon">🏥</div>
-                        <h3>Hospitals</h3>
-                        <p class="service-count" id="hospitalCount">Loading...</p>
+                        <div class="category-name">Hospitals</div>
+                        <div class="category-count" id="hospitalCount">Loading...</div>
                     </button>
 
-                    <button class="category-card fire" onclick="showServices('fire')">
+                    <button class="category-card fire" onclick="App.showServices('fire')">
                         <div class="category-icon">🚒</div>
-                        <h3>Fire</h3>
-                        <p class="service-count" id="fireCount">Loading...</p>
+                        <div class="category-name">Fire</div>
+                        <div class="category-count" id="fireCount">Loading...</div>
                     </button>
 
-                    <button class="category-card ambulance" onclick="showServices('ambulance')">
+                    <button class="category-card ambulance" onclick="App.showServices('ambulance')">
                         <div class="category-icon">🚑</div>
-                        <h3>Ambulance</h3>
-                        <p class="service-count" id="ambulanceCount">Loading...</p>
+                        <div class="category-name">Ambulance</div>
+                        <div class="category-count" id="ambulanceCount">Loading...</div>
                     </button>
 
-                    <button class="category-card pharmacy" onclick="showServices('pharmacy')">
+                    <button class="category-card pharmacy" onclick="App.showServices('pharmacy')">
                         <div class="category-icon">💊</div>
-                        <h3>Pharmacy</h3>
-                        <p class="service-count" id="pharmacyCount">Loading...</p>
+                        <div class="category-name">Pharmacy</div>
+                        <div class="category-count" id="pharmacyCount">Loading...</div>
                     </button>
 
-                    <button class="category-card bank" onclick="showServices('bank')">
+                    <button class="category-card bank" onclick="App.showServices('bank')">
                         <div class="category-icon">🏦</div>
-                        <h3>Banks</h3>
-                        <p class="service-count" id="bankCount">Loading...</p>
+                        <div class="category-name">Banks</div>
+                        <div class="category-count" id="bankCount">Loading...</div>
                     </button>
 
-                    <button class="category-card petrol" onclick="showServices('petrol')">
+                    <button class="category-card petrol" onclick="App.showServices('petrol')">
                         <div class="category-icon">⛽</div>
-                        <h3>Petrol</h3>
-                        <p class="service-count" id="petrolCount">Loading...</p>
+                        <div class="category-name">Petrol</div>
+                        <div class="category-count" id="petrolCount">Loading...</div>
+                    </button>
+                    <button class="category-card guides-category" onclick="showGuidesView()">
+                        <div class="category-icon">📚</div>
+                        <div class="category-name">Emergency Guides</div>
+                        <div class="category-count">20 guides</div>
                     </button>
                 </div>
 
@@ -230,93 +236,6 @@
                     </div>
                 </div>
 
-                <!-- Emergency Guides Section -->
-                <div class="guides-section">
-                    <h3>📚 Emergency Guides</h3>
-                    <div class="guides-grid">
-                        <button class="guide-card" onclick="showGuide('heartAttack')">
-                            <span class="guide-icon">❤️</span>
-                            <span class="guide-name">Heart Attack</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('cpr')">
-                            <span class="guide-icon">👐</span>
-                            <span class="guide-name">CPR</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('bleeding')">
-                            <span class="guide-icon">🩸</span>
-                            <span class="guide-name">Bleeding</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('burns')">
-                            <span class="guide-icon">🔥</span>
-                            <span class="guide-name">Burns</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('choking')">
-                            <span class="guide-icon">😮</span>
-                            <span class="guide-name">Choking</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('snakeBite')">
-                            <span class="guide-icon">🐍</span>
-                            <span class="guide-name">Snake Bite</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('stroke')">
-                            <span class="guide-icon">🧠</span>
-                            <span class="guide-name">Stroke</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('seizure')">
-                            <span class="guide-icon">⚡</span>
-                            <span class="guide-name">Seizure</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('drowning')">
-                            <span class="guide-icon">🌊</span>
-                            <span class="guide-name">Drowning</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('poisoning')">
-                            <span class="guide-icon">☠️</span>
-                            <span class="guide-name">Poisoning</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('fracture')">
-                            <span class="guide-icon">🦴</span>
-                            <span class="guide-name">Fractures</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('electricShock')">
-                            <span class="guide-icon">⚡</span>
-                            <span class="guide-name">Electric Shock</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('heatStroke')">
-                            <span class="guide-icon">🌡️</span>
-                            <span class="guide-name">Heat Stroke</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('hypothermia')">
-                            <span class="guide-icon">❄️</span>
-                            <span class="guide-name">Hypothermia</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('allergicReaction')">
-                            <span class="guide-icon">🤧</span>
-                            <span class="guide-name">Allergic Reaction</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('asthmaAttack')">
-                            <span class="guide-icon">🫁</span>
-                            <span class="guide-name">Asthma Attack</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('diabeticEmergency')">
-                            <span class="guide-icon">🍬</span>
-                            <span class="guide-name">Diabetic Emergency</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('concussion')">
-                            <span class="guide-icon">🤕</span>
-                            <span class="guide-name">Concussion</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('nosebleed')">
-                            <span class="guide-icon">🩸</span>
-                            <span class="guide-name">Nosebleed</span>
-                        </button>
-                        <button class="guide-card" onclick="showGuide('eyeInjury')">
-                            <span class="guide-icon">👁️</span>
-                            <span class="guide-name">Eye Injury</span>
-                        </button>
-                    </div>
-                </div>
-
                 <!-- Health Card Section -->
                 <div class="health-card-section">
                     <div class="section-header">
@@ -378,6 +297,99 @@
                 <!-- Map View -->
                 <div id="mapContainer" class="map-container" style="display: none;">
                     <div id="map"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency Guides View -->
+        <div id="guidesView" class="view">
+            <div class="container">
+                <div class="view-header">
+                    <button class="back-btn" onclick="showHome()">← Back</button>
+                    <h2 id="guidesTitle">📚 Emergency Guides</h2>
+                </div>
+
+                <div class="guides-grid-view">
+                    <button class="guide-card-large" onclick="showGuide('heartAttack')">
+                        <span class="guide-icon-large">❤️</span>
+                        <span class="guide-name-large">Heart Attack</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('cpr')">
+                        <span class="guide-icon-large">🫁</span>
+                        <span class="guide-name-large">CPR</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('bleeding')">
+                        <span class="guide-icon-large">🩸</span>
+                        <span class="guide-name-large">Severe Bleeding</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('burns')">
+                        <span class="guide-icon-large">🔥</span>
+                        <span class="guide-name-large">Burns</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('choking')">
+                        <span class="guide-icon-large">😮</span>
+                        <span class="guide-name-large">Choking</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('snakeBite')">
+                        <span class="guide-icon-large">🐍</span>
+                        <span class="guide-name-large">Snake Bite</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('stroke')">
+                        <span class="guide-icon-large">🧠</span>
+                        <span class="guide-name-large">Stroke (FAST)</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('seizure')">
+                        <span class="guide-icon-large">⚡</span>
+                        <span class="guide-name-large">Seizure</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('drowning')">
+                        <span class="guide-icon-large">🌊</span>
+                        <span class="guide-name-large">Drowning</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('poisoning')">
+                        <span class="guide-icon-large">☠️</span>
+                        <span class="guide-name-large">Poisoning</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('fracture')">
+                        <span class="guide-icon-large">🦴</span>
+                        <span class="guide-name-large">Fractures</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('electricShock')">
+                        <span class="guide-icon-large">⚡</span>
+                        <span class="guide-name-large">Electric Shock</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('heatStroke')">
+                        <span class="guide-icon-large">🌡️</span>
+                        <span class="guide-name-large">Heat Stroke</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('hypothermia')">
+                        <span class="guide-icon-large">❄️</span>
+                        <span class="guide-name-large">Hypothermia</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('allergicReaction')">
+                        <span class="guide-icon-large">🤧</span>
+                        <span class="guide-name-large">Allergic Reaction</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('asthmaAttack')">
+                        <span class="guide-icon-large">💨</span>
+                        <span class="guide-name-large">Asthma Attack</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('diabeticEmergency')">
+                        <span class="guide-icon-large">🍬</span>
+                        <span class="guide-name-large">Diabetic Emergency</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('concussion')">
+                        <span class="guide-icon-large">🤕</span>
+                        <span class="guide-name-large">Concussion</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('nosebleed')">
+                        <span class="guide-icon-large">🩸</span>
+                        <span class="guide-name-large">Nosebleed</span>
+                    </button>
+                    <button class="guide-card-large" onclick="showGuide('eyeInjury')">
+                        <span class="guide-icon-large">👁️</span>
+                        <span class="guide-name-large">Eye Injury</span>
+                    </button>
                 </div>
             </div>
         </div>

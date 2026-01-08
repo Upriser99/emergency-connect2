@@ -1,0 +1,96 @@
+/* Emergency Guides View Styling */
+
+#guidesView {
+    min-height: 100vh;
+}
+
+.guides-grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.guide-card-large {
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 120px;
+}
+
+.guide-card-large:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.guide-card-large:active {
+    transform: translateY(-2px);
+}
+
+.guide-icon-large {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.guide-name-large {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+/* Guides Category Card Styling */
+.guides-category {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important;
+}
+
+.guides-category:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(139, 92, 246, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .guides-grid-view {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .guide-card-large {
+        padding: 1rem 0.75rem;
+        min-height: 100px;
+    }
+
+    .guide-icon-large {
+        font-size: 2.5rem;
+    }
+
+    .guide-name-large {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .guides-grid-view {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Dark Mode */
+body.dark-mode .guide-card-large {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .guide-card-large:hover {
+    border-color: var(--primary-color);
+}

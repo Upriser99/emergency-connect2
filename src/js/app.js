@@ -1,3 +1,20 @@
+// Emergency Connect - Main Application
+// Phase 1-6 Complete
+
+// Show Emergency Guides View
+function showGuidesView() {
+    document.getElementById('homeView').classList.remove('active');
+    document.getElementById('serviceView').classList.remove('active');
+    document.getElementById('guidesView').classList.add('active');
+}
+
+// Show Home View
+function showHome() {
+    document.getElementById('homeView').classList.add('active');
+    document.getElementById('serviceView').classList.remove('active');
+    document.getElementById('guidesView').classList.remove('active');
+}
+
 // Main Application Logic
 const App = {
     currentView: 'home',
