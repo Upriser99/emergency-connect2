@@ -7,15 +7,13 @@ const MedicalQR = {
 
     // Show QR code modal
     showQRModal() {
-        const healthCard = localStorage.getItem('healthCard');
+        // Get active health card from HealthCardManager
+        const cardData = HealthCardManager.getActiveCard();
 
-        if (!healthCard) {
-            alert('Please fill out your Health Card first before generating a QR code.');
+        if (!cardData || !cardData.name) {
+            alert('Please save a Health Card first before generating a QR code.');
             return;
         }
-
-        // Parse health card data
-        const cardData = JSON.parse(healthCard);
 
         // Create medical ID object with essentials
         const medicalID = {
@@ -29,7 +27,7 @@ const MedicalQR = {
                 medications: cardData.medications || 'None',
                 conditions: cardData.conditions || 'None',
                 emergencyContact: cardData.emergencyContact || 'Not specified',
-                emergencyPhone: cardData.emergencyPhone || 'Not specified'
+                doctorContact: cardData.doctorContact || 'Not specified'
             }
         };
 
@@ -78,7 +76,7 @@ const MedicalQR = {
     // Print QR Code
     printQR() {
         const printWindow = window.open('', '', 'width=600,height=600');
-        const healthCard = JSON.parse(localStorage.getItem('healthCard') || '{}');
+        const healthCard = HealthCardManager.getActiveCard() || {};
 
         printWindow.document.write(`
             <html>
@@ -127,18 +125,90 @@ const MedicalQR = {
         }, 250);
     },
 
-    // Download QR as image
+    // Download QR as combined image with details
     downloadQR() {
-        const canvas = document.querySelector('#qrCodeContainer canvas');
-        if (!canvas) {
+        const qrCanvas = document.querySelector('#qrCodeContainer canvas');
+        if (!qrCanvas) {
             alert('No QR code to download');
             return;
         }
 
-        const healthCard = JSON.parse(localStorage.getItem('healthCard') || '{}');
+        const card = HealthCardManager.getActiveCard() || {};
+
+        // Create a new canvas with QR + text details
+        const finalCanvas = document.createElement('canvas');
+        const ctx = finalCanvas.getContext('2d');
+
+        // Set canvas size (QR + text area)
+        finalCanvas.width = 600;
+        finalCanvas.height = 800;
+
+        // White background
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, finalCanvas.width, finalCanvas.height);
+
+        // Header
+        ctx.fillStyle = '#DC2626';
+        ctx.font = 'bold 32px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('🚨 MEDICAL ID', 300, 50);
+
+        // Draw QR code (centered)
+        ctx.drawImage(qrCanvas, 172, 80, 256, 256);
+
+        // Patient details
+        let y = 370;
+        ctx.fillStyle = '#1f2937';
+        ctx.font = 'bold 24px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(card.name || 'Not specified', 300, y);
+
+        y += 40;
+        ctx.font = '18px Arial';
+        ctx.textAlign = 'left';
+
+        const details = [
+            `Blood Group: ${card.bloodGroup || 'Not specified'}`,
+            `Allergies: ${card.allergies || 'None'}`,
+            `Conditions: ${card.conditions || 'None'}`,
+            `Medications: ${card.medications || 'None'}`,
+            `Emergency Contact: ${card.emergencyContact || 'Not specified'}`,
+            `Doctor: ${card.doctorContact || 'Not specified'}`
+        ];
+
+        details.forEach(detail => {
+            // Wrap long text
+            const maxWidth = 540;
+            const words = detail.split(' ');
+            let line = '';
+
+            words.forEach(word => {
+                const testLine = line + word + ' ';
+                const metrics = ctx.measureText(testLine);
+                if (metrics.width > maxWidth && line !== '') {
+                    ctx.fillText(line, 30, y);
+                    line = word + ' ';
+                    y += 25;
+                } else {
+                    line = testLine;
+                }
+            });
+            ctx.fillText(line, 30, y);
+            y += 30;
+        });
+
+        // Footer
+        y += 20;
+        ctx.font = 'italic 14px Arial';
+        ctx.fillStyle = '#6b7280';
+        ctx.textAlign = 'center';
+        ctx.fillText('Scan QR code for quick access to medical information', 300, y);
+        ctx.fillText(`Generated: ${new Date().toLocaleDateString()}`, 300, y + 20);
+
+        // Download
         const link = document.createElement('a');
-        link.download = `medical-id-qr-${healthCard.name || 'emergency'}.png`;
-        link.href = canvas.toDataURL();
+        link.download = `medical-id-${card.name || 'emergency'}.png`;
+        link.href = finalCanvas.toDataURL();
         link.click();
     }
 };
