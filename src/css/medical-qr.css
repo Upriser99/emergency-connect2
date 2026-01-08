@@ -1,0 +1,236 @@
+/* Medical ID QR Code Styling */
+
+.qr-code-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.qr-code-modal.active {
+    display: flex;
+}
+
+.qr-modal-content {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.qr-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.qr-modal-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #DC2626;
+}
+
+.qr-close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.qr-close-btn:hover {
+    color: #DC2626;
+}
+
+.qr-modal-body {
+    text-align: center;
+}
+
+.qr-patient-info {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f9fafb;
+    border-radius: 8px;
+}
+
+.qr-patient-info p {
+    margin: 0.5rem 0;
+    font-size: 0.9375rem;
+}
+
+.qr-patient-info strong {
+    color: #1f2937;
+}
+
+#qrCodeContainer {
+    margin: 1.5rem auto;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    display: inline-block;
+}
+
+#qrCodeContainer canvas {
+    display: block;
+}
+
+.qr-instructions {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #eff6ff;
+    border-left: 4px solid #3b82f6;
+    border-radius: 4px;
+    text-align: left;
+    font-size: 0.875rem;
+    color: #1e40af;
+}
+
+.qr-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.qr-btn {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    font-size: 0.9375rem;
+}
+
+.qr-btn-primary {
+    background: #3b82f6;
+    color: white;
+}
+
+.qr-btn-primary:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+.qr-btn-secondary {
+    background: #10b981;
+    color: white;
+}
+
+.qr-btn-secondary:hover {
+    background: #059669;
+    transform: translateY(-2px);
+}
+
+.qr-btn-outline {
+    background: white;
+    color: #6b7280;
+    border: 1px solid #d1d5db;
+}
+
+.qr-btn-outline:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+/* Generate QR Button in Health Card */
+.generate-qr-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 1rem;
+}
+
+.generate-qr-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.generate-qr-btn:active {
+    transform: translateY(0);
+}
+
+/* Dark Mode */
+body.dark-mode .qr-modal-content {
+    background: #1e293b;
+    color: #f1f5f9;
+}
+
+body.dark-mode .qr-modal-header {
+    border-bottom-color: #475569;
+}
+
+body.dark-mode .qr-patient-info {
+    background: #334155;
+}
+
+body.dark-mode #qrCodeContainer {
+    background: white;
+    border-color: #475569;
+}
+
+body.dark-mode .qr-instructions {
+    background: #1e3a8a;
+    color: #93c5fd;
+    border-left-color: #3b82f6;
+}
+
+body.dark-mode .qr-btn-outline {
+    background: #334155;
+    color: #cbd5e1;
+    border-color: #475569;
+}
+
+body.dark-mode .qr-btn-outline:hover {
+    background: #475569;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .qr-modal-content {
+        padding: 1.5rem;
+    }
+
+    #qrCodeContainer {
+        padding: 0.75rem;
+    }
+
+    #qrCodeContainer canvas {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .qr-actions {
+        flex-direction: column;
+    }
+}
