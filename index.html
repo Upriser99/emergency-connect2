@@ -607,6 +607,89 @@
         </div>
     </div>
 
+    <!-- Call Recording Modal -->
+    <div id="callRecordingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🎙️ Witness Call Recording</h3>
+                <button class="close-btn" onclick="closeCallRecordingModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="recording-instructions">
+                    <h4>📋 How to use:</h4>
+                    <ul>
+                        <li>Record emergency calls as evidence</li>
+                        <li>Recordings auto-delete after 7 days</li>
+                        <li>Share or download anytime</li>
+                        <li>Grant microphone permission when prompted</li>
+                    </ul>
+                </div>
+
+                <div class="recording-controls">
+                    <div class="recording-visualizer">
+                        <div class="recording-wave">
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                            <div class="wave-bar"></div>
+                        </div>
+                    </div>
+
+                    <div id="recordingStatus">🔴 Recording...</div>
+                    <div id="recordingTimer">0:00</div>
+
+                    <div class="recording-btn-group">
+                        <button id="recordingBtn" onclick="CallRecording.toggleRecording()">
+                            🎙️ Start Recording
+                        </button>
+                    </div>
+
+                    <button class="view-recordings-btn" onclick="CallRecording.showRecordingsList()">
+                        📂 View All Recordings
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recordings List Modal -->
+    <div id="recordingsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📂 My Recordings</h3>
+                <button class="close-btn" onclick="closeRecordingsModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="recordingsList"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeRecordingsModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Playback Modal -->
+    <div id="playbackModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🎧 Playback</h3>
+                <button class="close-btn" onclick="closePlaybackModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="playback-container">
+                    <audio id="audioPlayer" controls></audio>
+                    <div class="playback-info">
+                        Use the controls above to play, pause, or skip through the recording.
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closePlaybackModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Floating SOS Button -->
     <a href="tel:112" class="sos-button" title="Emergency Call 112">
         <span class="sos-text">SOS</span>
