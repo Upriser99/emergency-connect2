@@ -403,11 +403,22 @@ function closePlaybackModal() {
     modal.classList.remove('active');
 }
 
+
 // Initialize on load
-document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCallRecording);
+} else {
+    initCallRecording();
+}
+
+function initCallRecording() {
     CallRecording.initDB().then(() => {
         console.log('Call Recording DB initialized');
         // Clean up old recordings on startup
-        CallRecording.cleanupOldRecordings();
+        CallRecording.cleanupOldRecordings().catch(err => {
+            console.log('Cleanup error (non-critical):', err);
+        });
+    }).catch(err => {
+        console.log('Call Recording DB init error (non-critical):', err);
     });
-});
+}
