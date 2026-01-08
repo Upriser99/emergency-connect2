@@ -10,6 +10,7 @@ const HealthCardManager = {
         this.loadCards();
         this.updateCardsList();
         this.updatePreview();
+        this.updateHomeCardsList(); // Update home page selector
     },
 
     loadCards() {
@@ -45,6 +46,7 @@ const HealthCardManager = {
         localStorage.setItem('healthCards', JSON.stringify(this.cards));
         this.updateCardsList();
         this.updatePreview();
+        this.updateHomeCardsList(); // Update home page
         return true;
     },
 
@@ -56,6 +58,8 @@ const HealthCardManager = {
         if (index >= 0 && index < this.cards.length) {
             this.activeCardIndex = index;
             this.updatePreview();
+            this.updateCardsList(); // Update modal
+            this.updateHomeCardsList(); // Update home page
         }
     },
 
@@ -68,6 +72,7 @@ const HealthCardManager = {
             localStorage.setItem('healthCards', JSON.stringify(this.cards));
             this.updateCardsList();
             this.updatePreview();
+            this.updateHomeCardsList(); // Update home page
         }
     },
 
@@ -95,6 +100,42 @@ const HealthCardManager = {
         container.innerHTML = `
             <div class="saved-cards-section">
                 <strong>Saved Health Cards:</strong>
+                <div class="cards-button-group">
+                    ${cardsHTML}
+                </div>
+            </div>
+        `;
+    },
+
+    updateHomeCardsList() {
+        const container = document.getElementById('healthCardsListHome');
+        const actionsContainer = document.getElementById('healthCardActions');
+
+        if (!container) return;
+
+        if (this.cards.length === 0) {
+            container.innerHTML = '';
+            if (actionsContainer) actionsContainer.style.display = 'none';
+            return;
+        }
+
+        // Show action buttons when cards exist
+        if (actionsContainer) actionsContainer.style.display = 'flex';
+
+        const cardsHTML = this.cards.map((card, index) => {
+            const isActive = index === this.activeCardIndex;
+            return `
+                <button type="button" 
+                        onclick="HealthCardManager.setActiveCard(${index});"
+                        class="health-card-btn ${isActive ? 'active' : ''}">
+                    <span class="card-name">${card.name}</span>
+                </button>
+            `;
+        }).join('');
+
+        container.innerHTML = `
+            <div class="saved-cards-section">
+                <strong>Select Card:</strong>
                 <div class="cards-button-group">
                     ${cardsHTML}
                 </div>
