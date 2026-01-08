@@ -42,12 +42,19 @@
 
 .health-card-btn.active {
     background: var(--primary-color);
-    color: white;
+    color: white !important;
+    /* Force white text */
     border-color: var(--primary-color);
 }
 
 .card-name {
-    color: inherit;
+    color: inherit !important;
+    /* Inherit from parent */
+}
+
+.health-card-btn.active .card-name {
+    color: white !important;
+    /* Force white for active */
 }
 
 .card-delete {
