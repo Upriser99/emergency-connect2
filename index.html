@@ -37,7 +37,34 @@
     <link rel="stylesheet" href="src/css/recording-ui.css">
     <link rel="stylesheet" href="src/css/medicine-reminder.css">
     <link rel="stylesheet" href="src/css/medical-qr.css">
-    <link rel="stylesheet" href="src/css/health-card-selector.css">
+    <link rel="stylesheet" href="src/css/health-card-selector.css?v=2">
+    <style>
+        /* CRITICAL: Force button visibility - inline to override cache */
+        .health-card-btn {
+            background: white !important;
+            color: #374151 !important;
+            border: 1px solid #d1d5db !important;
+            display: flex !important;
+        }
+
+        .health-card-btn.active {
+            background: var(--primary-color) !important;
+            color: white !important;
+            border-color: var(--primary-color) !important;
+        }
+
+        .health-card-btn.active .card-name {
+            color: white !important;
+        }
+
+        .health-card-btn:not(.active) {
+            color: #374151 !important;
+        }
+
+        .health-card-btn:not(.active) .card-name {
+            color: #374151 !important;
+        }
+    </style>
 </head>
 
 <body>
