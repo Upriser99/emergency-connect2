@@ -109,6 +109,259 @@ const GUIDE_DATA = {
             "DO NOT cut the wound or try to suck out venom",
             "DO NOT give any medication or alcohol"
         ]
+    },
+    stroke: {
+        title: "🧠 Stroke (FAST Method)",
+        summary: "A stroke is a medical emergency. Act FAST - every minute counts!",
+        steps: [
+            "Remember FAST: Face, Arms, Speech, Time",
+            "Face: Ask person to smile - does one side droop?",
+            "Arms: Ask to raise both arms - does one drift down?",
+            "Speech: Ask to repeat a phrase - is speech slurred?",
+            "Time: If YES to any, call 108/112 immediately",
+            "Note the time symptoms started",
+            "Keep person calm and comfortable",
+            "Do NOT give food, water, or medication"
+        ],
+        warnings: [
+            "DO NOT wait to see if symptoms improve",
+            "DO NOT drive to hospital yourself - call ambulance",
+            "Time is critical - brain cells die every minute"
+        ]
+    },
+    seizure: {
+        title: "⚡ Seizure",
+        summary: "Stay calm and protect the person from injury during a seizure.",
+        steps: [
+            "Stay calm and time the seizure",
+            "Clear area of hard or sharp objects",
+            "Cushion head with something soft",
+            "Turn person on their side",
+            "Loosen tight clothing around neck",
+            "Stay with them until fully conscious",
+            "Call 108/112 if seizure lasts over 5 minutes"
+        ],
+        warnings: [
+            "DO NOT hold person down or restrain",
+            "DO NOT put anything in their mouth",
+            "DO NOT give water or food until fully alert"
+        ]
+    },
+    drowning: {
+        title: "🌊 Drowning",
+        summary: "Act quickly but safely when someone is drowning.",
+        steps: [
+            "Call 108/112 immediately",
+            "Reach or throw - don't go in water unless trained",
+            "If rescued, check breathing",
+            "If not breathing, start CPR immediately",
+            "Continue CPR until help arrives",
+            "Keep person warm with blanket",
+            "Monitor breathing even if conscious"
+        ],
+        warnings: [
+            "DO NOT enter water unless you're a trained swimmer",
+            "DO NOT assume person is fine if they cough up water",
+            "Secondary drowning can occur hours later"
+        ]
+    },
+    poisoning: {
+        title: "☠️ Poisoning",
+        summary: "Quick action is essential in poisoning cases.",
+        steps: [
+            "Call 108/112 or Poison Control immediately",
+            "Identify the poison if possible",
+            "If conscious, keep person calm",
+            "If unconscious, turn on side",
+            "Save poison container/label",
+            "Do NOT induce vomiting unless told to",
+            "Follow emergency operator's instructions"
+        ],
+        warnings: [
+            "DO NOT give anything by mouth unless instructed",
+            "DO NOT induce vomiting for corrosive poisons",
+            "DO NOT wait for symptoms to appear"
+        ]
+    },
+    fracture: {
+        title: "🦴 Fractures",
+        summary: "Immobilize the injured area and seek medical help.",
+        steps: [
+            "Call 108/112 for severe fractures",
+            "Do NOT move the person unless necessary",
+            "Immobilize the injured area",
+            "Apply ice pack (wrapped in cloth)",
+            "Treat for shock - keep warm",
+            "Do NOT try to realign the bone",
+            "Support the limb in position found"
+        ],
+        warnings: [
+            "DO NOT move if spine or neck injury suspected",
+            "DO NOT apply ice directly to skin",
+            "DO NOT give food or water in case surgery needed"
+        ]
+    },
+    electricShock: {
+        title: "⚡ Electric Shock",
+        summary: "Safety first! Do not touch the person until power is off.",
+        steps: [
+            "Turn off power source immediately",
+            "If can't turn off, use dry non-conductive object to separate",
+            "Call 108/112",
+            "Check breathing and pulse",
+            "Start CPR if needed",
+            "Treat burns with cool water",
+            "Cover burns with sterile bandage"
+        ],
+        warnings: [
+            "DO NOT touch person while still in contact with electricity",
+            "DO NOT use wet objects or stand in water",
+            "Even low voltage can be dangerous"
+        ]
+    },
+    heatStroke: {
+        title: "🌡️ Heat Stroke",
+        summary: "Heat stroke is life-threatening. Cool the person immediately.",
+        steps: [
+            "Call 108/112 immediately",
+            "Move to cool, shaded area",
+            "Remove excess clothing",
+            "Cool with wet cloths or spray water",
+            "Fan the person",
+            "Apply ice packs to neck, armpits, groin",
+            "Give water if conscious"
+        ],
+        warnings: [
+            "DO NOT give aspirin or acetaminophen",
+            "DO NOT give fluids if unconscious",
+            "DO NOT apply rubbing alcohol"
+        ]
+    },
+    hypothermia: {
+        title: "❄️ Hypothermia",
+        summary: "Warm the person gradually and gently.",
+        steps: [
+            "Call 108/112",
+            "Move to warm, dry location",
+            "Remove wet clothing",
+            "Warm with blankets, dry clothes",
+            "Give warm (not hot) drinks if conscious",
+            "Warm center of body first (chest, neck, head)",
+            "Stay with person until help arrives"
+        ],
+        warnings: [
+            "DO NOT use direct heat (hot water, heating pad)",
+            "DO NOT give alcohol",
+            "DO NOT massage or rub the person"
+        ]
+    },
+    allergicReaction: {
+        title: "🤧 Severe Allergic Reaction",
+        summary: "Anaphylaxis is life-threatening. Act immediately!",
+        steps: [
+            "Call 108/112 immediately",
+            "Use epinephrine auto-injector if available",
+            "Help person lie down",
+            "Elevate legs if possible",
+            "Loosen tight clothing",
+            "Do NOT give anything by mouth",
+            "Be prepared to do CPR"
+        ],
+        warnings: [
+            "DO NOT wait to see if symptoms improve",
+            "DO NOT assume one dose of epinephrine is enough",
+            "Symptoms can return - monitor closely"
+        ]
+    },
+    asthmaAttack: {
+        title: "🫁 Asthma Attack",
+        summary: "Help the person use their inhaler and stay calm.",
+        steps: [
+            "Help person sit upright",
+            "Help them use their inhaler",
+            "Loosen tight clothing",
+            "Keep calm and reassure them",
+            "If no improvement in 5-10 minutes, call 108/112",
+            "Continue using inhaler every few minutes",
+            "Stay with them until breathing improves"
+        ],
+        warnings: [
+            "DO NOT lay person down",
+            "DO NOT leave them alone",
+            "Call 108/112 if lips turn blue or can't speak"
+        ]
+    },
+    diabeticEmergency: {
+        title: "🍬 Diabetic Emergency",
+        summary: "Low blood sugar needs immediate sugar. High sugar needs medical help.",
+        steps: [
+            "If conscious and low sugar: give sugary drink/candy",
+            "If unconscious: call 108/112 immediately",
+            "Position on side if unconscious",
+            "Do NOT give insulin unless you're trained",
+            "Monitor breathing",
+            "Stay with person",
+            "If no improvement in 10 minutes, call 108/112"
+        ],
+        warnings: [
+            "DO NOT give food/drink if unconscious",
+            "DO NOT give insulin without medical training",
+            "Both high and low sugar can be dangerous"
+        ]
+    },
+    concussion: {
+        title: "🤕 Concussion",
+        summary: "Head injuries need careful monitoring.",
+        steps: [
+            "Call 108/112 if person lost consciousness",
+            "Apply ice pack to injured area",
+            "Keep person awake for first few hours",
+            "Monitor for worsening symptoms",
+            "Rest in quiet, dark room",
+            "No sports or physical activity",
+            "Seek medical evaluation"
+        ],
+        warnings: [
+            "DO NOT give aspirin (may increase bleeding)",
+            "DO NOT let person drive",
+            "Watch for vomiting, confusion, severe headache"
+        ]
+    },
+    nosebleed: {
+        title: "🩸 Nosebleed",
+        summary: "Most nosebleeds can be stopped with proper technique.",
+        steps: [
+            "Sit upright and lean slightly forward",
+            "Pinch soft part of nose firmly",
+            "Hold for 10-15 minutes without releasing",
+            "Breathe through mouth",
+            "Apply ice pack to nose bridge",
+            "Do NOT tilt head back",
+            "If bleeding continues after 20 minutes, seek medical help"
+        ],
+        warnings: [
+            "DO NOT tilt head back (blood may go down throat)",
+            "DO NOT pack nose with tissue",
+            "DO NOT blow nose for several hours after"
+        ]
+    },
+    eyeInjury: {
+        title: "👁️ Eye Injury",
+        summary: "Protect the eye and seek immediate medical help.",
+        steps: [
+            "Do NOT rub the eye",
+            "For chemicals: flush with water for 15 minutes",
+            "For objects: do NOT try to remove",
+            "Cover eye with clean cloth",
+            "Call 108/112 or go to emergency",
+            "Keep person calm",
+            "Cover both eyes to reduce movement"
+        ],
+        warnings: [
+            "DO NOT apply pressure to eyeball",
+            "DO NOT try to remove embedded objects",
+            "DO NOT use eye drops unless instructed"
+        ]
     }
 };
 
