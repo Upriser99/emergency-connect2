@@ -472,6 +472,7 @@ const App = {
         this.currentDisplayView = 'list'; // Reset to list view
 
         document.getElementById('serviceView').classList.remove('active');
+        document.getElementById('guidesView').classList.remove('active');
         document.getElementById('homeView').classList.add('active');
     }
 };
