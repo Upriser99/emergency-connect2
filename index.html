@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="src/css/guides-view.css">
     <link rel="stylesheet" href="src/css/guides-banner.css">
     <link rel="stylesheet" href="src/css/recording-ui.css">
+    <link rel="stylesheet" href="src/css/medicine-reminder.css">
 </head>
 
 <body>
@@ -108,6 +109,21 @@
                         <div class="category-icon">⛽</div>
                         <div class="category-name">Petrol</div>
                         <div class="category-count" id="petrolCount">Loading...</div>
+                    </button>
+                </div>
+
+                <!-- Medicine Reminder Section -->
+                <div class="guides-section-home">
+                    <button class="guides-banner" onclick="showMedicineReminder()"
+                        style="background: linear-gradient(135deg, #10b981, #059669);">
+                        <div class="guides-banner-icon">💊</div>
+                        <div class="guides-banner-content">
+                            <h3>Medicine Reminder</h3>
+                            <p>Track medications & get reminders
+                                <span id="medicinePendingBadge" class="medicine-pending-badge">0</span>
+                            </p>
+                        </div>
+                        <div class="guides-banner-arrow">→</div>
                     </button>
                 </div>
 
@@ -690,6 +706,71 @@
         </div>
     </div>
 
+    <!-- Medicine Reminder Modal -->
+    <div id="medicineReminderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>💊 Medicine Reminder</h3>
+                <button class="close-btn" onclick="closeMedicineReminder()">×</button>
+            </div>
+            <div class="modal-body">
+                <!-- Medicines List -->
+                <div id="medicinesList"></div>
+
+                <!-- Add/Edit Medicine Form -->
+                <div id="medicineFormSection">
+                    <form id="medicineForm" class="medicine-form" onsubmit="saveMedicine(event)">
+                        <input type="hidden" id="editMedicineId">
+
+                        <div class="form-group">
+                            <label for="medicineName">Medicine Name *</label>
+                            <input type="text" id="medicineName" name="medicineName" required
+                                placeholder="e.g., Aspirin, Insulin">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="medicineDosage">Dosage *</label>
+                            <input type="text" id="medicineDosage" name="medicineDosage" required
+                                placeholder="e.g., 100mg, 2 tablets">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="medicineFrequency">Frequency *</label>
+                            <select id="medicineFrequency" name="medicineFrequency" required>
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="as-needed">As Needed</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Reminder Times *</label>
+                            <div id="medicineTimesContainer"></div>
+                            <button type="button" class="btn-add-time" onclick="MedicineReminder.addTimeSlot()">
+                                + Add Time
+                            </button>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="medicineNotes">Notes (Optional)</label>
+                            <textarea id="medicineNotes" name="medicineNotes"
+                                placeholder="e.g., Take with food, Before breakfast"></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-save-medicine">Save Medicine</button>
+                            <button type="button" class="btn-cancel-medicine"
+                                onclick="cancelMedicineForm()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="showAddMedicineForm()">+ Add New Medicine</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Floating SOS Button -->
     <a href="tel:112" class="sos-button" title="Emergency Call 112">
         <span class="sos-text">SOS</span>
@@ -795,6 +876,7 @@
     <script src="src/js/accident-report.js"></script>
     <script src="src/js/disaster-alerts.js"></script>
     <script src="src/js/call-recording.js"></script>
+    <script src="src/js/medicine-reminder.js"></script>
     <script src="src/js/app.js"></script>
 
     <!-- Service Worker Registration -->
