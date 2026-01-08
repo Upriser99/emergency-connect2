@@ -80,30 +80,23 @@ const HealthCardManager = {
             return;
         }
 
+        const cardsHTML = this.cards.map((card, index) => {
+            const isActive = index === this.activeCardIndex;
+            return `
+                <button type="button" 
+                        onclick="HealthCardManager.setActiveCard(${index}); loadHealthCardToForm(${index});"
+                        class="health-card-btn ${isActive ? 'active' : ''}">
+                    <span class="card-name">${card.name}</span>
+                    <span class="card-delete" onclick="event.stopPropagation(); HealthCardManager.deleteCard(${index});">×</span>
+                </button>
+            `;
+        }).join('');
+
         container.innerHTML = `
-            <div style="margin-bottom: 1rem;">
+            <div class="saved-cards-section">
                 <strong>Saved Health Cards:</strong>
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
-                    ${this.cards.map((card, index) => `
-                        <button type="button" 
-                                onclick="HealthCardManager.setActiveCard(${index}); loadHealthCardToForm(${index});"
-                                style="padding: 0.5rem 1rem; 
-                                       background: ${index === this.activeCardIndex ? 'var(--primary-color)' : '#f3f4f6'}; 
-                                       color: ${index === this.activeCardIndex ? 'white' : '#374151'};
-                                       border: 1px solid #d1d5db;
-                                       border-radius: 6px;
-                                       cursor: pointer;
-                                       font-size: 0.875rem;
-                                       display: flex;
-                                       align-items: center;
-                                       gap: 0.5rem;">
-                            ${card.name}
-                            <span onclick="event.stopPropagation(); HealthCardManager.deleteCard(${index});" 
-                                  style="color: ${index === this.activeCardIndex ? 'white' : '#ef4444'}; 
-                                         font-weight: bold; 
-                                         cursor: pointer;">×</span>
-                        </button>
-                    `).join('')}
+                <div class="cards-button-group">
+                    ${cardsHTML}
                 </div>
             </div>
         `;
@@ -119,13 +112,19 @@ const HealthCardManager = {
             return;
         }
 
-        preview.innerHTML = `
-            <div style="text-align: left;">
-                <p style="margin: 0.25rem 0; font-size: 0.9375rem;"><strong>Name:</strong> ${card.name}</p>
-                ${card.bloodGroup ? `<p style="margin: 0.25rem 0; font-size: 0.875rem;"><strong>Blood:</strong> ${card.bloodGroup}</p>` : ''}
-                ${card.allergies ? `<p style="margin: 0.25rem 0; font-size: 0.875rem;"><strong>Allergies:</strong> ${card.allergies}</p>` : ''}
-            </div>
-        `;
+        // Show ALL fields that have data
+        let html = '<div style="text-align: left;">';
+        html += `<p style="margin: 0.5rem 0; font-size: 1rem; font-weight: 600; color: var(--primary-color);">${card.name}</p>`;
+
+        if (card.bloodGroup) html += `<p style="margin: 0.25rem 0; font-size: 0.875rem;"><strong>Blood Group:</strong> ${card.bloodGroup}</p>`;
+        if (card.allergies) html += `<p style="margin: 0.25rem 0; font-size: 0.875rem;"><strong>Allergies:</strong> ${card.allergies}</p>`;
+        if (card.conditions) html += `<p style="margin: 0.25rem 0; font-size: 0.875rem;"><strong>Conditions:</strong> ${card.conditions}</p>`;
+        if (card.medications) html += `<p style="margin: 0.25rem 0; font-size: 0.875rem;"><strong>Medications:</strong> ${card.medications}</p>`;
+        if (card.emergencyContact) html += `<p style="margin: 0.25rem 0; font-size: 0.875rem;"><strong>Emergency Contact:</strong> ${card.emergencyContact}</p>`;
+        if (card.doctorContact) html += `<p style="margin: 0.25rem 0; font-size: 0.875rem;"><strong>Doctor:</strong> ${card.doctorContact}</p>`;
+
+        html += '</div>';
+        preview.innerHTML = html;
     }
 };
 

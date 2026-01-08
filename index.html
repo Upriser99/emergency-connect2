@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="src/css/recording-ui.css">
     <link rel="stylesheet" href="src/css/medicine-reminder.css">
     <link rel="stylesheet" href="src/css/medical-qr.css">
+    <link rel="stylesheet" href="src/css/health-card-selector.css">
 </head>
 
 <body>
@@ -268,11 +269,23 @@
                 <div class="health-card-section">
                     <div class="section-header">
                         <h3>💳 Health Card</h3>
-                        <button class="add-contact-btn" onclick="showHealthCard()">View/Edit</button>
+                        <button class="add-contact-btn" onclick="showHealthCard()">+ Add New</button>
                     </div>
+
+                    <!-- Card Selector (moved from modal to home) -->
+                    <div id="healthCardsListHome"></div>
+
+                    <!-- Health Card Preview -->
                     <div class="health-card-preview" id="healthCardPreview">
                         <p style="color: var(--text-secondary); font-size: 0.875rem;">Store your medical info for
                             emergencies</p>
+                    </div>
+
+                    <!-- Action Buttons (Generate QR, Share) -->
+                    <div class="health-card-actions" id="healthCardActions" style="display: none;">
+                        <button class="btn-qr" onclick="showMedicalQR()">📱 Generate QR</button>
+                        <button class="btn-share" onclick="shareHealthCard()">📤 Share</button>
+                        <button class="btn-edit" onclick="showHealthCard()">✏️ Edit</button>
                     </div>
                 </div>
 
