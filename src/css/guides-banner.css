@@ -1,0 +1,76 @@
+/* Emergency Guides Home Section Banner */
+
+.guides-section-home {
+    margin: 1.5rem 0;
+}
+
+.guides-banner {
+    width: 100%;
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    border: none;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(139, 92, 246, 0.2);
+}
+
+.guides-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(139, 92, 246, 0.3);
+}
+
+.guides-banner:active {
+    transform: translateY(0);
+}
+
+.guides-banner-icon {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.guides-banner-content {
+    flex: 1;
+    text-align: left;
+}
+
+.guides-banner-content h3 {
+    color: white;
+    font-size: 1.25rem;
+    margin: 0 0 0.25rem 0;
+    font-weight: 700;
+}
+
+.guides-banner-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.guides-banner-arrow {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .guides-banner {
+        padding: 1.25rem;
+    }
+
+    .guides-banner-icon {
+        font-size: 2.5rem;
+    }
+
+    .guides-banner-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .guides-banner-content p {
+        font-size: 0.8rem;
+    }
+}
