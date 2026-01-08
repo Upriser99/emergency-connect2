@@ -10,7 +10,7 @@ const HealthCardManager = {
         this.loadCards();
         this.updateCardsList();
         this.updatePreview();
-        this.updateHomeCardsList(); // Update home page selector
+        this.updateHomeCardsList();
     },
 
     loadCards() {
@@ -26,15 +26,12 @@ const HealthCardManager = {
     },
 
     save(cardData) {
-        // Check if card with this name exists
         const existingIndex = this.cards.findIndex(c => c.name === cardData.name);
 
         if (existingIndex >= 0) {
-            // Update existing card
             this.cards[existingIndex] = cardData;
             this.activeCardIndex = existingIndex;
         } else {
-            // Add new card (max 5)
             if (this.cards.length >= this.maxCards) {
                 alert(`Maximum ${this.maxCards} health cards allowed. Please delete one to add another.`);
                 return false;
@@ -46,7 +43,7 @@ const HealthCardManager = {
         localStorage.setItem('healthCards', JSON.stringify(this.cards));
         this.updateCardsList();
         this.updatePreview();
-        this.updateHomeCardsList(); // Update home page
+        this.updateHomeCardsList();
         return true;
     },
 
@@ -58,8 +55,8 @@ const HealthCardManager = {
         if (index >= 0 && index < this.cards.length) {
             this.activeCardIndex = index;
             this.updatePreview();
-            this.updateCardsList(); // Update modal
-            this.updateHomeCardsList(); // Update home page
+            this.updateCardsList();
+            this.updateHomeCardsList();
         }
     },
 
@@ -72,10 +69,11 @@ const HealthCardManager = {
             localStorage.setItem('healthCards', JSON.stringify(this.cards));
             this.updateCardsList();
             this.updatePreview();
-            this.updateHomeCardsList(); // Update home page
+            this.updateHomeCardsList();
         }
     },
 
+    // Modal card list (with edit and delete)
     updateCardsList() {
         const container = document.getElementById('healthCardsList');
         if (!container) return;
@@ -85,28 +83,18 @@ const HealthCardManager = {
             return;
         }
 
-        const cardsHTML = this.cards.map((card, index) => {
-            const isActive = index === this.activeCardIndex;
-            return `
-                <button type="button" 
-                        onclick="HealthCardManager.setActiveCard(${index}); loadHealthCardToForm(${index});"
-                        class="health-card-btn ${isActive ? 'active' : ''}">
-                    <span class="card-name">${card.name}</span>
-                    <span class="card-delete" onclick="event.stopPropagation(); HealthCardManager.deleteCard(${index});">×</span>
-                </button>
-            `;
-        }).join('');
+        let html = '<div class="saved-cards-section"><strong>Saved Health Cards:</strong><div class="cards-button-group">';
 
-        container.innerHTML = `
-            <div class="saved-cards-section">
-                <strong>Saved Health Cards:</strong>
-                <div class="cards-button-group">
-                    ${cardsHTML}
-                </div>
-            </div>
-        `;
+        this.cards.forEach((card, index) => {
+            const activeClass = (index === this.activeCardIndex) ? ' active' : '';
+            html += `<button type="button" class="health-card-btn${activeClass}" onclick="HealthCardManager.setActiveCard(${index}); loadHealthCardToForm(${index});"><span class="card-name">${card.name}</span><span class="card-delete" onclick="event.stopPropagation(); HealthCardManager.deleteCard(${index});">×</span></button>`;
+        });
+
+        html += '</div></div>';
+        container.innerHTML = html;
     },
 
+    // Home page card selector (no delete buttons)
     updateHomeCardsList() {
         const container = document.getElementById('healthCardsListHome');
         const actionsContainer = document.getElementById('healthCardActions');
@@ -119,28 +107,17 @@ const HealthCardManager = {
             return;
         }
 
-        // Show action buttons when cards exist
         if (actionsContainer) actionsContainer.style.display = 'flex';
 
-        const cardsHTML = this.cards.map((card, index) => {
-            const isActive = index === this.activeCardIndex;
-            return `
-                <button type="button" 
-                        onclick="HealthCardManager.setActiveCard(${index});"
-                        class="health-card-btn ${isActive ? 'active' : ''}">
-                    <span class="card-name">${card.name}</span>
-                </button>
-            `;
-        }).join('');
+        let html = '<div class="saved-cards-section"><strong>Select Card:</strong><div class="cards-button-group">';
 
-        container.innerHTML = `
-            <div class="saved-cards-section">
-                <strong>Select Card:</strong>
-                <div class="cards-button-group">
-                    ${cardsHTML}
-                </div>
-            </div>
-        `;
+        this.cards.forEach((card, index) => {
+            const activeClass = (index === this.activeCardIndex) ? ' active' : '';
+            html += `<button type="button" class="health-card-btn${activeClass}" onclick="HealthCardManager.setActiveCard(${index});"><span class="card-name">${card.name}</span></button>`;
+        });
+
+        html += '</div></div>';
+        container.innerHTML = html;
     },
 
     updatePreview() {
@@ -153,7 +130,6 @@ const HealthCardManager = {
             return;
         }
 
-        // Show ALL fields that have data
         let html = '<div style="text-align: left;">';
         html += `<p style="margin: 0.5rem 0; font-size: 1rem; font-weight: 600; color: var(--primary-color);">${card.name}</p>`;
 
@@ -169,21 +145,14 @@ const HealthCardManager = {
     }
 };
 
-// Global helper functions
+// Show modal with empty form (for Add New button)
 function showHealthCard() {
     document.getElementById('healthCardModal').classList.add('active');
     HealthCardManager.updateCardsList();
-
-    // Load active card if exists
-    const activeCard = HealthCardManager.getActiveCard();
-    if (activeCard) {
-        loadHealthCardToForm(HealthCardManager.activeCardIndex);
-    } else {
-        // Clear form for new card
-        document.getElementById('healthCardForm').reset();
-    }
+    document.getElementById('healthCardForm').reset(); // Always start fresh
 }
 
+// Load specific card data into form (for editing)
 function loadHealthCardToForm(index) {
     const card = HealthCardManager.cards[index];
     if (!card) return;
@@ -251,7 +220,7 @@ function closeHealthCard() {
     document.getElementById('healthCardModal').classList.remove('active');
 }
 
-// Initialize on load
+// Initialize
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         HealthCardManager.init();
