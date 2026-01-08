@@ -78,7 +78,7 @@ const MedicalQR = {
     // Print QR Code
     printQR() {
         const printWindow = window.open('', '', 'width=600,height=600');
-        const healthCard = JSON.parse(localStorage.getItem('emergencyHealthCard') || '{}');
+        const healthCard = JSON.parse(localStorage.getItem('healthCard') || '{}');
 
         printWindow.document.write(`
             <html>
@@ -135,7 +135,7 @@ const MedicalQR = {
             return;
         }
 
-        const healthCard = JSON.parse(localStorage.getItem('emergencyHealthCard') || '{}');
+        const healthCard = JSON.parse(localStorage.getItem('healthCard') || '{}');
         const link = document.createElement('a');
         link.download = `medical-id-qr-${healthCard.name || 'emergency'}.png`;
         link.href = canvas.toDataURL();
