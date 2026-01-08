@@ -20,7 +20,7 @@ const GUIDE_DATA = {
         ]
     },
     cpr: {
-        title: "🫀 CPR (Cardiopulmonary Resuscitation)",
+        title: "⛑️ CPR (Cardiopulmonary Resuscitation)",
         summary: "CPR can save a life when someone's heart stops beating. Follow these steps carefully.",
         steps: [
             "Check if the person is responsive - tap and shout",
