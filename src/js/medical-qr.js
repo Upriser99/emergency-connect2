@@ -7,7 +7,7 @@ const MedicalQR = {
 
     // Show QR code modal
     showQRModal() {
-        const healthCard = localStorage.getItem('emergencyHealthCard');
+        const healthCard = localStorage.getItem('healthCard');
 
         if (!healthCard) {
             alert('Please fill out your Health Card first before generating a QR code.');
