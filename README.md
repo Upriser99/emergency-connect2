@@ -198,7 +198,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **OpenStreetMap** - Map data and services
 - **Leaflet.js** - Interactive maps
-- **Indore Municipal Corporation** - Emergency service data
 - **Community Contributors** - Testing and feedback
 
 ---
