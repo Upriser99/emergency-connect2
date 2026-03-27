@@ -1,9 +1,8 @@
-# 🚨 Emergency Connect - Indore
+# 🚨 Emergency Connect
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-**Emergency Connect** is a comprehensive, mobile-first emergency response platform for Indore, India. Built with vanilla HTML, CSS, and JavaScript, it provides instant access to emergency services, guides, and life-saving tools.
+**Emergency Connect** is a comprehensive, emergency response platform for India. Built with vanilla HTML, CSS, and JavaScript, it provides instant access to emergency services, guides, and life-saving tools.
 
 <p align="center">
   <img src="public/icons/icon-512.png" alt="Emergency Connect" width="200"/>
@@ -41,10 +40,10 @@
 - Share via SMS/WhatsApp
 
 ### 🔮 Coming Soon
-- 📳 Shake to SOS
+- 📳 Shake to SOS (done✅)
 - 🎤 Voice Commands
 - 📶 Full Offline Mode
-- 💬 SOS SMS Blast
+- 💬 SOS SMS Blast (done✅)
 - 🎙️ Witness Call Recording
 - 🚨 Disaster Alerts
 
@@ -204,7 +203,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📞 Emergency Numbers (Indore)
+## 📞 Emergency Numbers (India)
 
 - **112** - National Emergency (All services)
 - **100** - Police
@@ -219,8 +218,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🔗 Links
 
 - **Live Demo**: [https://emergency-connect.netlify.app](https://emergency-connect.netlify.app)
-- **Documentation**: [docs/](docs/)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/emergency-connect/issues)
 
 ---
 
@@ -235,11 +232,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🗺️ Roadmap
 
-- [ ] Shake to SOS
+- [ ] Shake to SOS ✅
 - [ ] Voice Commands
-- [ ] SOS SMS Blast
-- [ ] Witness Call Recording
-- [ ] Disaster Alerts
+- [ ] SOS SMS Blast ✅
+- [ ] Witness Call Recording ✅
+- [ ] Disaster Alerts ✅
 - [ ] Multi-city support
 - [ ] Real-time traffic updates
 - [ ] Hospital bed availability
@@ -249,9 +246,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 💡 Support
 
 If you find this project helpful, please ⭐ star the repository!
-
-For issues or questions, please [open an issue](https://github.com/yourusername/emergency-connect/issues).
+If you spot some fixes required, any improvements or any new idea, feel free to suggest
 
 ---
 
-**Made with ❤️ for Indore**
+**Made with ❤️ for India**
